@@ -115,7 +115,25 @@ class Dolphin implements Flyable{
   } 
 }
 
-public class Main
+interface Insect {
+     boolean fly();
+    boolean walk();
+    boolean sound();
+}
+
+class Butterfly implements Insect {
+    public boolean fly() { return true; }
+    public boolean walk() { return true; }
+    public boolean sound() { return false; }
+}
+
+class CaterpillarState implements Insect {
+      public  boolean fly() { return false; }
+      public boolean walk() { return true; }
+      public  boolean sound() { return true; }             
+    }
+
+public class Main 
 {
 
    public static void main(String args[])
@@ -154,8 +172,13 @@ public class Main
     Dolphin dolphin = new Dolphin();
      System.out.println(dolphin.canFly());
 
-     
-     
+//D. Model animals that change their behaviour over time
+     Insect butterfly = new Butterfly();
+     Insect caterpillarState = new CaterpillarState();
+     butterfly.fly();
+     butterfly.sound();
+     caterpillarState.fly();
+     caterpillarState.walk();
 
    
    }
