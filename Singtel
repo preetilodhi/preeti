@@ -48,12 +48,71 @@ class Chicken extends Bird implements Flyable{
    }
 }
 
-class rooster extends Chicken{å
+class rooster extends Chicken{
 @Override
    void sound()
    {
       System.out.println("Cock-a-doodle-doo");
    }
+}
+
+class Fish extends Animal implements Flyable 
+{
+  void shapeAndColour(){
+      System.out.println("default");
+   }
+  void behaviour(){
+      System.out.println("default");
+   }
+  @Override
+  public String canFly(){
+       return "I can swim";
+  } 
+  
+  void walk()
+   {
+      System.out.println("I dont walk");
+   }
+
+    void sing()
+   {
+      System.out.println("I dont sing");
+   }
+   
+}
+
+class Shark extends Fish {
+  
+   void shapeAndColour()
+   {
+      System.out.println("Sharks are large and grey");
+   }
+
+   void behaviour()
+   {
+      System.out.println("Sharks eat other fish");
+   }
+}
+
+class Clownfish extends Fish {
+  
+   void shapeAndColour()
+   {
+      System.out.println("Clownfish are small and colourful (orange)");
+   }
+
+   void behaviour()
+   {
+      System.out.println("Clownfish make jokes");
+   }
+}
+
+class Dolphin implements Flyable{
+  
+   @Override
+  public String canFly(){
+       return "I can swim";
+  } 
 }
 
 public class Main
@@ -75,7 +134,27 @@ public class Main
      chickenbird.sound();
      System.out.println(duck.canFly());
      System.out.println(chicken.canFly());
+
+     //b. How is the rooster related to the chicken -it belong to the family of chicken hence used ploymorphism.
      rooster.sound();
+
+//B. Model fish as well as other swimming animals
+     Fish fish = new Fish();
+     System.out.println(fish.canFly());
+     fish.sing();
+     fish.walk();
+
+     Shark shark = new Shark();
+     Clownfish clownfish = new Clownfish();
+     shark.behaviour();
+     shark.shapeAndColour();
+     clownfish.behaviour();
+     clownfish.shapeAndColour();
+
+    Dolphin dolphin = new Dolphin();
+     System.out.println(dolphin.canFly());
+
+     
      
 
    
