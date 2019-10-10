@@ -1,0 +1,84 @@
+
+
+class Animal{
+   void walk()
+   {
+      System.out.println("I am walking");
+   }
+}
+
+class Bird extends Animal
+{
+   void fly()
+   {
+      System.out.println("I am flying");
+   }
+    void sing()
+   {
+      System.out.println("I am singing");
+   }
+   void sound()
+   {
+      System.out.println("Default");
+   }
+}
+
+class Duck extends Bird implements Flyable {
+  @Override
+  public String canFly(){
+       return "I can swim";
+  }
+   void sound()
+   {
+      System.out.println("Quack, quack");
+   }
+}
+
+class Chicken extends Bird implements Flyable{
+@Override
+  public String canFly(){
+       return "I cannot fly";
+  }
+   void sound()
+   {
+      System.out.println("Cluck, cluck");
+   }
+}
+
+class rooster extends Chicken{
+@Override
+   void sound()
+   {
+      System.out.println("Cock-a-doodle-doo");
+   }
+}
+
+public class Main
+{
+
+   public static void main(String args[])
+   {
+
+     Bird bird = new Bird();
+      Bird duckbird = new Duck();
+      Bird chickenbird = new Chicken();
+      Duck duck = new Duck();
+      Chicken chicken = new Chicken();
+      rooster rooster = new rooster();
+     bird.walk();
+     bird.fly();
+     bird.sing();
+     duckbird.sound();
+     chickenbird.sound();
+     duck.canFly();
+     chicken.canFly();
+     rooster.sound();
+     
+
+   
+   }
+}
+
+public interface Flyable{
+  public String canFly();
+}
