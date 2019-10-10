@@ -6,6 +6,9 @@ class Animal{
       System.out.println("I am walking");
    }
 }
+  interface Flyable{
+  public String canFly();
+}
 
 class Bird extends Animal
 {
@@ -45,7 +48,7 @@ class Chicken extends Bird implements Flyable{
    }
 }
 
-class rooster extends Chicken{
+class rooster extends Chicken{å
 @Override
    void sound()
    {
@@ -70,15 +73,11 @@ public class Main
      bird.sing();
      duckbird.sound();
      chickenbird.sound();
-     duck.canFly();
-     chicken.canFly();
+     System.out.println(duck.canFly());
+     System.out.println(chicken.canFly());
      rooster.sound();
      
 
    
    }
-}
-
-public interface Flyable{
-  public String canFly();
 }
